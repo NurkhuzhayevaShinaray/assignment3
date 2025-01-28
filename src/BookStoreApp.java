@@ -19,7 +19,7 @@ public class BookStoreApp {
 
             try {
                 switch (choice) {
-                    case 1 -> {
+                    case 1 : 
                         System.out.print("Enter title: ");
                         String title = scanner.nextLine();
                         System.out.print("Enter author: ");
@@ -33,9 +33,10 @@ public class BookStoreApp {
                         scanner.nextLine();
                         bookService.addBook(new Book(0, title, author, genre, price, stock));
                         System.out.println("Book added successfully!");
-                    }
-                    case 2 -> bookService.getAllBooks().forEach(System.out::println);
-                    case 3 -> {
+                    
+                    case 2 :
+                        bookService.getAllBooks().forEach(System.out::println);
+                    case 3 :
                         System.out.print("Enter book ID to purchase: ");
                         int id = scanner.nextInt();
                         System.out.print("Enter quantity: ");
@@ -46,20 +47,20 @@ public class BookStoreApp {
                         } else {
                             System.out.println("Purchase failed. Insufficient stock or invalid book ID.");
                         }
-                    }
-                    case 4 -> {
+                    
+                    case 4 :
                         System.out.print("Enter book ID to delete: ");
                         int id = scanner.nextInt();
                         scanner.nextLine();
                         bookService.deleteBook(id);
                         System.out.println("Book deleted successfully!");
-                    }
-                    case 5 -> {
+                    
+                    case 5 :
                         System.out.println("Exiting...");
                         scanner.close();
                         System.exit(0);
-                    }
-                    default -> System.out.println("Invalid choice!");
+                    
+                    default : System.out.println("Invalid choice!");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
